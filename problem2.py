@@ -57,3 +57,47 @@ Total - 450.00
 Average - 75.00
 Grade - B'''
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
+name = input()
+
+if name.isalpha():
+    E_marks = int(input())
+    S_marks = int(input())
+    M_marks = int(input())
+    SS_marks = int(input())
+    RL_marks = int(input())
+    CS_marks = int(input())
+
+    if (0 <= E_marks <= 100 and
+        0 <= S_marks <= 100 and
+        0 <= M_marks <= 100 and
+        0 <= SS_marks <= 100 and
+        0 <= RL_marks <= 100 and
+        0 <= CS_marks <= 100):
+
+        Total = E_marks + S_marks + M_marks + SS_marks + RL_marks + CS_marks
+        Average = Total / 6
+
+        print(name)
+        print(f"Total - {Total:.2f}")
+        print(f"Average - {Average:.2f}")
+
+        if Average >= 90:
+            print("Grade - A")
+        elif Average >= 75:
+            print("Grade - B")
+        elif Average >= 50:
+            print("Grade - C")
+        else:
+            print("Grade - Fail")
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+Elena
+70
+75
+80
+72
+78
+75
+Elena
+Total - 450.00
+Average - 75.00
+Grade - B
