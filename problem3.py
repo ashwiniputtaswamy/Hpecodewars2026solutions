@@ -33,3 +33,48 @@ Sneha - 50.00%
 Karthik - 50.00%
 Tie between Sneha, Karthik'''
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
+candidate_input=input()
+candidate_details=candidate_input.split(",")
+#print(candidate_details)
+candidates={}
+vote_count={}
+winners=[]
+for candidate in candidate_details:
+    serial,name=candidate.split(":")
+    candidates[serial]=name
+    vote_count[serial]=0
+vote_list = input().split(",") 
+#print(vote_list)
+#print(candidates)
+for vote in vote_list:
+    #print(vote)
+    vote_count[vote]+=1
+total_votes=len(vote_list)
+highest_votes=max(vote_count.values())
+#print(f"The total votes are,{total_votes}")
+for serial in candidates:
+    #print(candidates[serial],"->",vote_count[serial])
+    percentage = (vote_count[serial]/total_votes)*100
+    print(f"{candidates[serial]} - {percentage:.2f}%")
+    if vote_count[serial]==highest_votes:
+        #print(f"{candidates[serial]} is the winner")
+        winners.append(candidates[serial])
+if len(winners)==1:
+    print(f"Winner is {winners[0]}")
+elif len(winners)>1:
+    print("Tie between",", ".join(winners))
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output 1:
+1:Rahul,2:Priya,3:Amit
+1,2,2,1,3,2,1,1
+Rahul - 50.00%
+Priya - 37.50%
+Amit - 12.50%
+Winner is Rahul
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Output 2: 
+1:Sneha,2:Karthik
+1,2,2,1,2,2,1,1
+Sneha - 50.00%
+Karthik - 50.00%
+Tie between Sneha, Karthik
