@@ -4,7 +4,7 @@ Description: The FIFA World Cup group stage is in full swing! Each group has N t
 you are given each team's total points and goal difference. Goal difference is calculated across all matches played by that team: total goals scored minus
 total goals conceded.
 Your job is to print the final group standings, ranked from 1st to last, using these rules:
---> Teams with more points across all amtches are ranked higher.
+--> Teams with more points across all matches are ranked higher.
 --> If two or more teams have the same number of points, the team with a higher goal difference is ranked higher.
 --> If both points and goal difference are the same, rank the teams in alphabetical order by team name.
 Print the team names in order from 1st place to last place, one per line.
@@ -45,5 +45,20 @@ Poland
 Morocco'''
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 Code:
+n = int(input())
 
+teams = []
+
+for i in range(n):
+    name, points, goal = input().split()
+
+    points = int(points)
+    goal = int(goal)
+
+    teams.append([name, points, goal])
+
+teams.sort(key=lambda x: (-x[1], -x[2], x[0]))
+
+for team in teams:
+    print(team[0])
 =================================================================================================================================================================
